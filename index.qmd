@@ -13,7 +13,7 @@ execute:
 ## Observational Data: A Misleading Victory for Doc Dreamy
 ```{r}
 #| label: load-data-r
-#| echo: true
+#| echo: False
 
 # Load the observational data
 patients_df <- read.csv('patients_data.csv')
@@ -30,7 +30,7 @@ Let's use data to figure out which surgeon performs better. @fig-plot-outcomes s
 ```{r}
 #| label: fig-plot-outcomes
 #| fig-cap: "Post-Surgical Symptom Score (lower is better) - Observed Data"
-#| echo: true
+#| echo: False
 
 library(ggplot2)
 
@@ -79,7 +79,7 @@ ggplot(patients_df, aes(x = patient, y = post_surgical_score, color = doctor_nam
 
 ```{r}
 #| label: load-data-randomized-r
-#| echo: true
+#| echo: False
 
 # Load the randomized data
 patients_randomized_df <- read.csv('patients_data_randomized.csv')
@@ -95,7 +95,7 @@ head(patients_randomized_df)
 ```{r}
 #| label: fig-plot-outcomes-randomized
 #| fig-cap: "Post-Surgical Symptom Score (lower is better) for randomized patients."
-#| echo: true
+#| echo: False
 
 # Calculate means for each doctor in randomized data
 mean_dreamy_rand <- mean(patients_randomized_df$post_surgical_score[patients_randomized_df$doctor_name == "Doc Dreamy"])
@@ -145,7 +145,7 @@ The key to handling a common cause confounder is to stratify by the common cause
 ```{r}
 #| label: fig-plot-outcomes-severity
 #| fig-cap: "Post-Surgical Symptom Score (lower is better) by Patient and Severity"
-#| echo: true
+#| echo: False
 
 # Calculate means for each doctor (using observational data)
 mean_dreamy_sev <- mean(patients_df$post_surgical_score[patients_df$doctor_name == "Doc Dreamy"])
